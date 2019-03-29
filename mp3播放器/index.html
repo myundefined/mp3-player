@@ -11,21 +11,21 @@
   <body>
     <div class="player">
       <div class="player_nav">
-        <div class="player_CD">
-          <div
+        <div class="player_CD" id="player_CD">
+          <!-- <div
             class="player_cdData active_song"
             style="background-image:url(img/Real-Madrid.png)"
             data-song="Real-Madrid"
             data-auctor="Jose De Aguilar"
             data-origin="./music/Halal madrid.mp3"
-          ></div>
-          <div
+          ></div> -->
+          <!-- <div
             class="player_cdData"
             style="background-image:url(img/black.png)"
             data-song="假如"
             data-auctor="Shin"
             data-origin="./music/Shin.mp3"
-          ></div>
+          ></div> -->
         </div>
         <div class="player_control">
           <div class="player_prev">
@@ -95,8 +95,26 @@
       </div>
     </div>
     <script src="./js/jquery.js"></script>
+    <script src="./js/music.js"></script>
+
+    <script>
+      var player_CD = document.getElementById('player_CD');
+      var CD = '';
+     
+
+      for(i = 0, len = music.length; i < len; i++) {
+        CD += "<div class='player_cdData' style='background-image:url("+ music[i][1] +")' data-song="+ music[i][0] +" data-auctor="+ music[i][2] +" data-origin="+ music[i][3] +"></div>"
+        
+      }
+     
+      player_CD.innerHTML = CD;
+      $(player_CD).find("div:first-child").addClass("active_song");
+      // console.log(CD);
+    </script>
+    
     <script src="./js/TweenMax.min.js"></script>
     <script src="./js/main.js"></script>
+    
   </body>
   
 </html>
